@@ -4,6 +4,7 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, 
 import { MenuIcon, AdbIcon} from '../../icons';
 import { GlobalCart } from '../Cart';
 
+
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -118,6 +119,7 @@ export function Navbar() {
 
           <Box gap={2} sx={{ flexGrow: 0 }}>
 
+            
             <GlobalCart />
 
             <Tooltip title="Open settings">
