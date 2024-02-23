@@ -5,10 +5,8 @@ import { CartIcon } from "../icons";
 import { CartContext } from "../contexts";
 
 export function GlobalCart() {
-  const {cart, appName} = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
-  console.log(cart, appName);
-  
   return (
     <Badge badgeContent={cart.length} color="warning">
       <Tooltip title="Add to cart">
