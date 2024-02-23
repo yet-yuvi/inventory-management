@@ -1,18 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { ProductServices } from '../../../services';
-
-export function useProducts() {
+export const useProductCart = () => {
   const [cart, setCart] = useState([]);
 
-  const products = ProductServices.getProducts();
 
-  const isProductExistsInCart = (productId) =>
+  const isProductExistInCart = (productId) =>
     cart.some((product) => product.id === productId);
 
   const addProductToCart = (product) => {
-    if (isProductExistsInCart(product.id)) {
-      alert('Already added!!!');
+    if (isProductExistInCart(product.id)) {
+      alert("Already added!!!");
       return;
     }
     setCart([...cart, product]);
@@ -22,11 +19,10 @@ export function useProducts() {
     setCart(cart.filter((cartItem) => cartItem.id !== productId));
   };
 
-  return {
+  return({
     cart,
-    products,
-    isProductExistsInCart,
+    isProductExistInCart,
     addProductToCart,
     removeProductFromCart,
-  };
-}
+  });
+};

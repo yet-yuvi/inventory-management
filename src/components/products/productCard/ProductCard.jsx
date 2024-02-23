@@ -1,17 +1,23 @@
-import './ProductCard.css';
+import { useContext } from "react";
+import { CartContext } from "../../../contexts";
+import { Card } from "../../../ui";
+import "./ProductCard.css";
 
-export function ProductCard({
-  product,
-  isAddedToCart,
-  addToCart,
-  removeFromCart,
-}) {
-  const handleAddToCart = () => addToCart(product);
+export function ProductCard({ product }) {
+  const {
+    addProductToCart,
+    removeProductFromCart,
+    isProductExistInCart,
+  } = useContext(CartContext);
 
-  const handleRemoveFromCart = () => removeFromCart(product.id);
+  const handleAddToCart = () => addProductToCart(product);
+
+  const handleRemoveFromCart = () => removeProductFromCart(product.id);
+
+  const isAddedToCart = isProductExistInCart(product.id);
 
   return (
-    <div className="product-card">
+    <Card sx={{ width: 345 }}>
       <h2>{product.name}</h2>
       <p>{`TK ${product.price}`}</p>
       <p>{`Quantity: ${product.quantity}`}</p>
@@ -26,6 +32,6 @@ export function ProductCard({
           Remove from Cart
         </button>
       )}
-    </div>
+    </Card>
   );
 }
