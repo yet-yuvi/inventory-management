@@ -1,19 +1,12 @@
-import { Footer, Navbar, Products } from "./components";
-import { CartProvider } from "./contexts";
-
+import { AppRouterProvider } from "./routes";
+import { Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <CartProvider>
-        <Navbar />
-        <main>
-          <Products />
-        </main>
-      </CartProvider>
-      <Footer />
-    </div>
+    <AppRouterProvider>
+      <Outlet />
+    </AppRouterProvider>
   );
 }
 
