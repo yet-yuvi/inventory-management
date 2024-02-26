@@ -1,6 +1,7 @@
 import React from "react";
 import { CartProvider } from "../contexts";
-import { Footer, Navbar, Products } from "../components";
+import { Footer, Navbar } from "../components";
+import { Outlet } from "react-router-dom";
 
 export const Layout = () => {
   return (
@@ -8,7 +9,7 @@ export const Layout = () => {
       <CartProvider>
         <Navbar />
         <main>
-          <Products />
+          <Outlet />
         </main>
       </CartProvider>
       <Footer />
